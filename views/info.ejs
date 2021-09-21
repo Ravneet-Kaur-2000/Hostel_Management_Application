@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="/css/info.css">
+    <link rel="stylesheet" href="/css/landing.css">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/82c55a20ec.js" crossorigin="anonymous"></script>
+</head>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom ">
+        <div class="brand">
+            <a class="navbar-brand" href="">GetYoHostel</a>
+        </div>
+        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a  class="nav-link" href="/">Home</a>
+            </li> 
+            <li class="nav-item">
+                <a  class="nav-link" href="/login">Login</a>
+            </li>  
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">About Us</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <% if(clg==="mit_clg") { %>
+    <div class="prices">
+        <table class="table center">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2">MIT World Peace University (Hostel 1 - Boys) - Near Gymkhana</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(userData.length>0) { %>
+                    <% userData.forEach((data)=>{ %>
+                    <tr>
+                        <% if(data.college==='MIT World Peace University' && data.hostel_no==1){ %>
+                    <td><%= data.facility %></td>
+                    <td>₹<%= data.price %>/month</td>
+                    <% } %>
+                    </tr>
+                    <% }) %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <div class="prices">
+        <table class="table center">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2">MIT World Peace University (Hostel 2 - Boys) - Near Main Library</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(userData.length>0) { %>
+                    <% userData.forEach((data)=>{ %>
+                    <tr>
+                        <% if(data.college==='MIT World Peace University' && data.hostel_no==2){ %>
+                    <td><%= data.facility %></td>
+                    <td>₹<%= data.price %>/month</td>
+                    <% } %>
+                    </tr>
+                    <% }) %>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+    <div class="prices">
+        <table class="table center">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2">MIT World Peace University (Hostel 3 - Girls) - Near Backgate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(userData.length>0) { %>
+                    <% userData.forEach((data)=>{ %>
+                    <tr>
+                        <% if(data.college==='MIT World Peace University' && data.hostel_no==3){ %>
+                    <td><%= data.facility %></td>
+                    <td>₹<%= data.price %>/month</td>
+                    <% } %>
+                    </tr>
+                    <% }) %>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
+    <%} %>
+    <% if(clg==="savitribai_clg") { %>
+        <div class="prices">
+            <table class="table center">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Savitribai Phule Pune University (Hostel 1 - Girls) - Near Central Library</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(userData.length>0) { %>
+                        <% userData.forEach((data)=>{ %>
+                        <tr>
+                            <% if(data.college==='Savitribai Phule Pune University' && data.hostel_no==1){ %>
+                        <td><%= data.facility %></td>
+                        <td>₹<%= data.price %>/month</td>
+                        <% } %>
+                        </tr>
+                        <% }) %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="prices">
+            <table class="table center">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Savitribai Phule Pune University (Hostel 2 - Boys) - Near Main Mess</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(userData.length>0) { %>
+                        <% userData.forEach((data)=>{ %>
+                        <tr>
+                            <% if(data.college==='Savitribai Phule Pune University' && data.hostel_no==2){ %>
+                        <td><%= data.facility %></td>
+                        <td>₹<%= data.price %>/month</td>
+                            <% } %>
+                        </tr>
+                        <% }) %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <%} %>
+        <% if(clg==="cummins_clg") { %>
+            <div class="prices">
+                <table class="table center">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Cummins College of Engineering for Girls (Hostel 1) - Near Frontgate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(userData.length>0) { %>
+                            <% userData.forEach((data)=>{ %>
+                            <tr>
+                                <% if(data.college==='Cummins College of Engineering for Girls' && data.hostel_no==1){ %>
+                            <td><%= data.facility %></td>
+                            <td>₹<%= data.price %>/month</td>
+                                <% } %>
+                            </tr>
+                            <% }) %>
+                        <% } %>
+    
+                    </tbody>
+                </table>
+            </div>
+            <div class="prices">
+                <table class="table center">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Cummins College of Engineering for Girls (Hostel 2) - Near Chemistry Department Building</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(userData.length>0) { %>
+                            <% userData.forEach((data)=>{ %>
+                            <tr>
+                                <% if(data.college==='Cummins College of Engineering for Girls' && data.hostel_no==2){ %>
+                            <td><%= data.facility %></td>
+                            <td>₹<%= data.price %>/month</td>
+                                <% } %>
+                            </tr>
+                            <% }) %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <%} %>
+    <div id="footer">
+        <div class="row">
+          <div class="col-lg-4 item safety">
+            <h2>Safety and Hygiene:</h2>
+            <ul type="square">
+              <li>
+                Thermal Monitoring
+              </li>
+              <li>
+                Sanitizers Placed at several places
+              </li>
+              <li>
+                No touch Dining Facility
+              </li>
+              <li>
+                Daily Disinfecting High touch areas
+              </li>
+              <li>
+                No touch Dining Facility
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 item contact">
+            <h2>Contact:</h2>
+            <div class="icons">
+              <a href="mailto:ravneetkaur9978@gmail.com"><i class="social-icon fas fa-envelope fa-2x"></i></a>
+              <a href=" "><i class="social-icon fa-2x fas fa-phone"></i></a>
+              <a href=" "><i class="social-icon fa-2x fas fa-map-marker-alt"></i> </a>
+              <a href=" "><i class="social-icon fab fa-instagram fa-2x"></i></a>
+              <a href="https://www.linkedin.com/in/ravneet-kaur-ba3b17198"><i class="social-icon fab fa-linkedin fa-2x"></i></a>
+              <a href=""><i class="social-icon fab fa-facebook-square fa-2x"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-4 facilities">
+            <h2>Facilities Provided:</h2>
+            <ul type="square">
+            <li>
+              24x7 Wi-Fi connectivity provided in all hostels
+            </li>
+            <li>
+              CCTV cameras at entrances of all hostels
+            </li>
+            <li>
+              24x7 electricity and water supply in all the hostels
+            </li>
+            <li>
+              Night cafeterias up to 1.00 AM
+            </li>
+            <li>
+              Solar panels installed in all hostels for hot water
+            </li>
+            <li>
+              Caretakers and housekeeping services are provided in all hostels during day and night
+            </li>
+            <li>
+              A scaled down version of Gyms in all hostels
+            </li>
+          </ul>
+          </div>
+        </div>
+      </div> 
+</body>
+</html>
+
+
+
+<!-- 
+<% if(clg==="mit_clg") { %>
+    <div class="prices">
+        <table class="table center">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2">MIT-WPU University (Hostel 1 - Boys) - Near Gymkhana</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Double Occupancy</td>
+                <td>₹12000/month</td>
+                </tr>
+                <tr>
+                    <td>Triple Occupancy</td>
+                    <td>₹10000/month</td>
+                </tr>
+                <tr>
+                    <td>Quadruple Occupancy</td>
+                    <td>₹8000/month</td>
+                </tr>
+                <tr>
+                    <td>Mess(optional)</td>
+                    <td>₹8000/month</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="prices">
+        <table class="table center">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2">MIT-WPU University (Hostel 2 - Boys) - Near Main Library</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Single Occupancy</td>
+                <td>₹14000/month</td>
+                </tr>
+                <tr>
+                    <td>Triple Occupancy</td>
+                    <td>₹10000/month</td>
+                </tr>
+                <tr>
+                    <td>Mess(optional)</td>
+                    <td>₹8000/month</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="prices">
+        <table class="table center">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2">MIT-WPU University (Hostel 3 - Girls) - Near Backgate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Double Occupancy</td>
+                <td>₹12000/month</td>
+                </tr>
+                <tr>
+                    <td>Triple Occupancy</td>
+                    <td>₹10000/month</td>
+                </tr>
+                <tr>
+                    <td>Quadruple Occupancy</td>
+                    <td>₹8000/month</td>
+                </tr>
+                <tr>
+                    <td>Mess(optional)</td>
+                    <td>₹6000/month</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <%} %>
+    <% if(clg==="savitribai_clg") { %>
+        <div class="prices">
+            <table class="table center">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Savitribai Phule Pune University (Hostel 1 - Girls) - Near Central Library</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Single Occupancy</td>
+                    <td>₹13000/month</td>
+                    </tr>
+                    <tr>
+                        <td>Double Occupancy</td>
+                        <td>₹11000/month</td>
+                    </tr>
+                    <tr>
+                        <td>Triple Occupancy</td>
+                        <td>₹9000/month</td>
+                    </tr>
+                    <tr>
+                        <td>Mess</td>
+                        <td>₹6000/month</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="prices">
+            <table class="table center">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Savitribai Phule Pune University (Hostel 2 - Boys) - Near Main Mess</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>Double Occupancy</td>
+                    <td>₹11000/month</td>
+                    </tr>
+                    <tr>
+                        <td>Triple Occupancy</td>
+                        <td>₹9000/month</td>
+                    </tr>
+                    <tr>
+                        <td>Mess</td>
+                        <td>₹8000/month</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <%} %>
+        <% if(clg==="cummins_clg") { %>
+            <div class="prices">
+                <table class="table center">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Cummins College of Engineering for Girls (Hostel 1) - Near Frontgate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>Single Occupancy (attached washroom)</td>
+                        <td>₹15000/month</td>
+                        </tr>
+                        <tr>
+                            <td>Double Occupancy (attached washroom)</td>
+                            <td>₹12000/month</td>
+                        </tr>
+                        <tr>
+                            <td>Mess</td>
+                            <td>₹7000/month</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="prices">
+                <table class="table center">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Cummins College of Engineering for Girls (Hostel 2) - Near Chemistry Department Building</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>Triple Occupancy (common washroom)</td>
+                        <td>₹11000/month</td>
+                        </tr>
+                        <tr>
+                            <td>Quadruple Occupancy (common Washroom)</td>
+                            <td>₹9000/month</td>
+                        </tr>
+                        <tr>
+                            <td>Mess</td>
+                            <td>₹7000/month</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <%} %> -->

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="/css/complaint.css">
+    <!-- Scripts -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <div class="flex">
+    <div class="navbar navbar-expand-lg navbar-dark navbar-custom">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a href="/profile/<%=details.email %>" class="nav-link nav-text active" >
+            <i class='bx bx-user'></i>  Profile
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-text">
+            <i class='bx bx-edit'></i>  Reallocate Room
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/complaint/<%=details.email %>" class="nav-link nav-text">
+            <i class='bx bx-time-five'></i>  File Complaint
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link nav-text">
+            <i class='bx bx-spreadsheet'></i>  Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="profile-outer">
+      <div class="profile-inner" style="display: flex;">
+        <h4>My Profile</h4>
+      </div>
+      <div class="container">
+            <div class="card" style="width: 48rem;">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-6 login">
+                          <form id="login-form" class="form" action=" " method="post" style="margin-right:2rem;">
+                              <div class="form-group">
+                                <label for="name" class="text-info" >Full Name</label>
+                                <input type="text" class="form-control" id="fname" name="fname" placeholder="<%= details.name %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="gender" class="text-info">Gender</label>
+                                <input type="text" class="form-control" id="gender" name="gender" placeholder="<%= details.gender %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="email" class="text-info">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="<%= details.email %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="phone" class="text-info">Contact Number</label>
+                                <input type="number" class="form-control" id="contact" name="contact" placeholder="<%= details.contact %>" disabled> 
+                              </div>
+                              <div class="form-group">
+                                <label for="email" class="text-info">Course</label>
+                                <input type="text" class="form-control" id="course" name="course" placeholder="<%= details.course %>" disabled>
+                              </div>
+                              <div class="form-group">
+                              <label for="pname" class="text-info">Parent's Name</label>
+                               <input type="text" class="form-control" id="pname" name="pname" placeholder="<%= details.pname %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="address" class="text-info">Emergency Contact Number</label>
+                                <input type="number" class="form-control" id="econtact" name="econtact" placeholder="<%= details.econtact %>" disabled>
+                              </div>
+                            </form>  
+                        </div>
+                        <div class="col-md-6 login">
+                          <form id="login-form" class="form" action=" " method="post" style="margin-left: 2rem;">
+                              <div class="form-group">
+                                <label for="clg" class="text-info">College Name</label>
+                                <input type="text" class="form-control" type="text" id="clg" name="clg" placeholder="<%= details.college %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="year" class="text-info">Current Academic Year</label>
+                                <input type="text" class="form-control" id="year" name="year" placeholder="<%= details.year %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="hostel" class="text-info">Hostel Number</label>
+                                <input type="text" class="form-control" id="hostel" name="hostel" placeholder="<%= details.hostel %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="occ" class="text-info">Occupancy</label>
+                                <input type="text" class="form-control" id="occ" name="occ" placeholder="<%= details.occupancy %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="floor" class="text-info">Floor Number</label>
+                                <input type="floor" class="form-control" id="floor" name="floor" placeholder="<%= details.floor %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="room_no" class="text-info">Room Number</label>
+                                <input type="number" class="form-control" id="room_no" name="room_no" placeholder="<%=details.room_no %>" disabled>
+                              </div>
+                              <div class="form-group">
+                                <label for="price" class="text-info">Total Amount Paid (Hostel + Mess) </label>
+                                <input type="number" class="form-control" id="price" name="price" placeholder="₹<%=details.price %>" disabled>
+                              </div>
+                            </form>  
+                        </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </body>
+        </html>            
+             
+            
+
+
+
+
+<!-- <div class="profile-info">
+  <div class="profile-info-left">
+    
+     <form action="">
+       <label for="name">Full Name</label>
+       <input type="text" id="fname" name="fname" placeholder="<%= details.name %>" disabled>
+       <label for="dob">Gender</label>
+       <input type="text" id="gender" name="gender" placeholder="<%= details.gender %>" disabled>
+       <label for="email">Email Address</label>
+       <input type="email" id="email" name="email" placeholder="<%= details.email %>" disabled>
+       <label for="phone">Contact Number</label>
+       <input type="number" id="contact" name="contact" placeholder="<%= details.contact %>" disabled>
+       <label for="email">Course</label>
+      <input type="text" id="course" name="course" placeholder="<%= details.course %>" disabled>
+       <label for="pname">Parent's Name</label>
+       <input type="text" id="pname" name="pname" placeholder="<%= details.pname %>" disabled>
+       <label for="address">Emergency Contact Number</label>
+       <input type="number" id="econtact" name="econtact" placeholder="<%= details.econtact %>" disabled>
+      </form>
+  </div>
+  <div class="profile-info-right">
+    <form action="">
+      <label for="clg">College Name</label>
+      <input class="change" type="text" id="clg" name="clg" placeholder="<%= details.college %>" disabled>
+      <label for="year">Current Academic Year</label>
+      <input type="text" id="year" name="year" placeholder="<%= details.year %>" disabled>
+      <label for="hostel">Hostel Number</label>
+      <input type="text" id="hostel" name="hostel" placeholder="<%= details.hostel %>" disabled>
+      <label for="occ">Occupancy</label>
+      <input type="text" id="occ" name="occ" placeholder="<%= details.occupancy %>" disabled>
+      <label for="floor">Floor Number</label>
+      <input type="floor" id="floor" name="floor" placeholder="<%= details.floor %>" disabled>
+       <label for="room_no">Room Number</label>
+      <input type="number" id="room_no" name="room_no" placeholder="<%=details.room_no %>" disabled>
+      <label for="price">Total Amount Paid (Hostel + Mess) </label>
+      <input type="number" id="price" name="price" placeholder="₹<%=details.price %>" disabled>   
+     </form>
+  </div>
+</div>
+</div>
+</div>
+</body> -->

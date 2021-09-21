@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="/css/complaint.css">
+    <!-- Scripts -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <div class="flex">
+    <div class="navbar navbar-expand-lg navbar-dark navbar-custom">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a href="/profile/<%=email %>" class="nav-link nav-text" >
+            <i class='bx bx-user'></i>  Profile
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link nav-text">
+            <i class='bx bx-edit'></i>  Reallocate Room
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/complaint/<%=email %>" class="nav-link nav-text active">
+            <i class='bx bx-time-five'></i>  File Complaint
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link nav-text">
+            <i class='bx bx-spreadsheet'></i>  Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="profile-outer">
+      <div class="profile-inner" style="display: flex;">
+        <h4>Reallocate Room</h4>
+      </div>
+      <div class="container">
+      <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md login">
+                    <form id="login-form" class="form" action="/complaint" method="post">
+                        
+
+                        <input type="hidden" name="email_real" value="<%= email %>">
+                        <div class="form-group">
+                            <button type="submit" class="click_me">Add Complaint</button>
+                        </div>
+                    </form>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  </div>
+</body>

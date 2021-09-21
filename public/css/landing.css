@@ -1,0 +1,134 @@
+body{
+    background-color:#96BAFF;
+    box-sizing:border-box;
+}
+
+/* navbar */
+
+.navbar-light .navbar-brand{
+    color:white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left:3rem;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color:white;
+    font-size:1.5rem;
+}
+
+.navbar-custom {
+    background-color: #7868E6;
+}
+
+.brand a:hover{
+    color:white !important;
+}
+
+.nav-item{
+    padding-right: 1.25rem;
+}
+
+.nav-item a:hover {
+    border-bottom: 3px solid #EFEFEF;
+    color:#EFEFEF !important;
+}
+  
+.nav-item a.active {
+    border-bottom: 3px solid #EFEFEF;
+    color:#EFEFEF !important;
+}
+
+.navbar-toggler.custom-toggler{
+    border-color:white;
+}
+
+
+
+/* image */
+.college-vector{
+    padding-left:8rem;
+}
+
+.bg{
+    height:360px;
+    width:360px;
+}
+
+.big-heading{
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: bold;
+    color:black;
+    text-align: left;
+    margin-top: 5.5rem;
+    margin-left:0;
+}
+
+.small-heading{
+    color:black;
+    margin-left:0;
+    margin-bottom: 2rem;
+}
+
+hr{
+    border: 1.5px solid black;
+}
+
+.card{
+    margin:2.8rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* footer */
+
+#footer{
+    background-color:#7868E6;
+    text-align:left;
+    color:white;
+    padding:1.2rem;
+}
+
+.contact{
+    padding-left:3rem;
+    border-right: 2px solid white;
+}
+
+.safety{
+    border-right: 2px solid white;
+}
+
+.social-icon{
+    color:white;
+    padding:2rem;
+}
+
+ul{
+    padding-top:1.5rem;
+}
+
+/* button */
+
+.click_me{
+    background-color: white;
+    border:2px solid #7868E6;
+    font-weight:bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    border-radius: 0.5rem;
+    padding:0;
+}
+
+.click_me a{
+   color:#7868E6;
+   padding:0.5rem;
+}
+
+.click_me a:hover{
+    text-decoration: none;
+    color:white;
+    background-color: #7868E6;
+}

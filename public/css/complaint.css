@@ -1,0 +1,109 @@
+body {
+    box-sizing: border-box;
+    margin:0;
+    background-color: #96BAFF;
+}
+
+.nav-item a:hover {
+    border-bottom: 3px solid #EFEFEF;
+    color:#EFEFEF !important;
+}
+  
+.nav-item a.active {
+    border-bottom: 3px solid #EFEFEF;
+    color:#EFEFEF !important;
+}
+
+.nav .nav-text{
+    color:white !important;
+    padding-left:0;
+    padding-right:0;
+    margin-left: 1.2rem;
+    font-size: 1.3rem;
+}
+
+.profile-inner{
+    display: flex;
+    justify-content:space-between ;
+    padding: 0.8rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    background-color: #fff;
+}
+
+
+.profile-outer{
+    display: block;
+    margin-left:250px;
+    width: 100%;
+    position:static;
+
+}
+
+.navbar-custom{
+    position:fixed;
+    height: 100%;
+    width:250px;
+    background-color: #7868E6 !important;
+}
+.flex-column{
+    height: 100%;
+}
+
+.flex-column .nav {
+    padding-left:0;
+} 
+
+.flex{
+    display: flex;
+    box-sizing: border-box;
+}
+
+
+
+.card{
+
+    background-color:white;
+    margin:0 auto;
+ }
+
+label.text-info{
+    font-size: 1.2rem;
+    color:black !important;
+}
+  
+.form-control{
+    border: 2px solid #96BAFF;
+    
+}  
+
+/* .form-group{
+    width: 70%;
+} */
+
+.container{
+    margin-top:80px;
+    margin-bottom:80px;
+  }
+
+.click_me{
+    background-color: white;
+    border:2px solid #96BAFF ;
+    font-weight:bold;
+    display: flex;
+    float:left;
+    margin:0 auto;
+    border-radius: 0.5rem;
+    padding:0;
+  }
+  
+  .click_me{
+   color:#96BAFF;
+   padding:0.5rem;
+  }
+  
+  .click_me:hover{
+    text-decoration: none;
+    color:black;
+    background-color:#96BAFF ;
+  }
+  

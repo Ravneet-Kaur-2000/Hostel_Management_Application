@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title %></title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="/css/login.css">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/82c55a20ec.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include("includes/navbar.ejs") -%>
+    <div class="container">
+        <div class="card" style="width: 50rem;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 hostel-vector">
+                        <img class="bg" src="/images/college hostel.png" alt="hostel">
+                    </div>
+                    <div class="col-md-6 signup">
+                        <form id="signup-form" class="form" action="/signup" method="post">
+                            <div class="form-group">
+                                <label for="college" class="text-info">College:</label><br>
+                                <select name="college" id="college" class="form-control">
+                                <!-- <datalist id="college-me">   -->
+                                    <option value="MIT World Peace University">MIT World Peace University</option>
+                                     <option value="Savitribai Phule Pune University">Savitribai Phule Pune University</option>
+                                     <option value="Cummins College of Engineering for Girls">Cummins College of Engineering for Girls</option>
+                                     </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-info">Email Address:</label><br>
+                                <input type="email" name="email" id="email" class="form-control" autocomplete="off" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="password" name="password" id="password" class="form-control" autocomplete="off" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="click_me">Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include("includes/footer.ejs") -%>  
+</body>
+</html>

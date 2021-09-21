@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title %></title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="/css/login.css">
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/82c55a20ec.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include("includes/navbar.ejs") -%>
+    <div class="container">
+        <div class="card" style="width: 40rem;">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md login">
+                        
+                        <form id="login-form" class="form" action="/get-student-details" method="post">
+                            <h5>Personal Details:</h5>
+                            <div class="form-group">
+                                <label for="Full Name" class="text-info">Full Name:</label><br>
+                                <input type="text" name="name" id="name" class="form-control"  required placeholder="Enter your Full Name"  autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <p>Gender:</p>
+                                <input type="radio" id="male" name="gender" value="Male">
+                                <label for="male" class="text-info">Male</label><br>
+                                <input type="radio" id="female" name="gender" value="Female">
+                                <label for="female" class="text-info">Female</label><br>
+                            </div>
+                            <div class="form-group">
+                              <label for="email" class="text-info">Email Address:</label><br>
+                              <input type="text" name="email" id="email" class="form-control" value="<%= email_id %>" disabled autocomplete="off">
+                              
+                          </div>
+      
+                            <div class="form-group">
+                                <label for="course" class="text-info">Course Name:</label><br>
+                                <input type="text" name="course" id="course" class="form-control" autocomplete="off" required placeholder="Enter your Course Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="erp" class="text-info">PRN Number:</label><br>
+                                <input type="text" name="erp" id="erp" class="form-control" autocomplete="off" required placeholder="Enter your College PRN No">
+                            </div>
+                            <div class="form-group">
+                                <label for="year" class="text-info">Current College Year:</label><br>
+                                <input type="text" name="year" id="year" class="form-control" autocomplete="off" required placeholder="Enter your Current College Year">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact" class="text-info">Contact Number:</label><br>
+                                <input type="number" name="contact" id="contact" class="form-control" autocomplete="off" required placeholder="Enter your Contact Number" maxlength="10" size="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="pname" class="text-info">Parent's Name:</label><br>
+                                <input type="pname" name="pname" id="pname" class="form-control" autocomplete="off" required placeholder="Enter your Parent's Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="econtact" class="text-info">Emergency Contact Number:</label><br>
+                                <input type="number" name="econtact" id="econtact" class="form-control" autocomplete="off" required placeholder="Enter your Emergency Conatct Number">
+                            </div>
+
+                            <h5>Hostel Selection:</h5>
+                            <% if(clg==="MIT World Peace University") { %>
+                              <div class="form-group">
+                                <label for="clg" class="text-info">College Name:</label><br>
+                                <input type="text" name="clg" id="clg" class="form-control" autocomplete="off" value="MIT World Peace University" disabled>
+                            </div>
+                                <div class="form-group">
+                                    <label for="hostel" class="text-info">Hostel No:</label><br>
+                                    <select id="hostel" name="hostel" class="form-control" required>
+                                    <!-- <input list="hostel-me" name="hostel" id="hostel" class="form-control" required autocomplete="off"> -->
+                                    <!-- <datalist id="hostel-me"> -->
+                                      <% var count=0 %>
+                                      <% if(hostel.length>0) { %>
+                                        <% hostel.forEach((data)=>{ %>
+                                            <% if(data.id===1){ %>
+                                            <% count=count+data.counter %>
+                                        <% } %>
+                                        <% }) %>
+                                      <% } %>
+                                      <% if(count>0) { %>
+                                        <option value="Hostel 1 (Boys)">Hostel 1 (Boys)</option>
+                                      <% } %>
+
+                                      <% var count1=0 %>
+                                      <% if(hostel.length>0) { %>
+                                        <% hostel.forEach((data)=>{ %>
+                                            <% if(data.id===2){ %>
+                                            <% count1=count1+data.counter %>
+                                        <% } %>
+                                        <% }) %>
+                                      <% } %>
+                                      <% if(count1>0) { %>
+                                        <option value="Hostel 2 (Boys)">Hostel 2 (Boys)</option>
+                                      <% } %>
+
+                                      <% var count2=0 %>
+                                      <% if(hostel.length>0) { %>
+                                        <% hostel.forEach((data)=>{ %>
+                                            <% if(data.id===3){ %>
+                                            <% count2=count2+data.counter %>
+                                        <% } %>
+                                        <% }) %>
+                                      <% } %>
+                                      <% if(count2>0) { %>
+                                        <option value="Hostel 3 (Girls)">Hostel 3 (Girls)</option>
+                                      <% } %>
+                                      <% if(count+count1+count2===0) { %>
+                                        <option value="No Hostel available in the College">No Hostel available in the College</option>
+                                      <% } %> 
+                                      <!-- </datalist> -->
+                                    </select>
+                                </div>
+                            <% } %>
+                            <% if(clg==="Savitribai Phule Pune University") { %>
+                              <div class="form-group">
+                                <label for="clg" class="text-info">College Name:</label><br>
+                                <input type="text" name="clg" id="clg" class="form-control" autocomplete="off" value="Savitribai Phule Pune University" disabled>
+                            </div>
+                                    <div class="form-group">
+                                        <label for="hostel" class="text-info">Hostel No:</label><br>
+                                        <select name="hostel" id="hostel" class="form-control" required autocomplete="off">
+                                        <!-- <datalist id="hostel-me">   -->
+                                          <% var count=0 %>
+                                          <% if(hostel.length>0) { %>
+                                            <% hostel.forEach((data)=>{ %>
+                                                <% if(data.id===4){ %>
+                                                <% count=count+data.counter %>
+                                            <% } %>
+                                            <% }) %>
+                                          <% } %>
+                                          <% if(count>0) { %>
+                                            <option value="Hostel 1 (Girls)">Hostel 1 (Girls)</option>
+                                          <% } %>
+    
+                                          <% var count1=0 %>
+                                          <% if(hostel.length>0) { %>
+                                            <% hostel.forEach((data)=>{ %>
+                                                <% if(data.id===5){ %>
+                                                <% count1=count1+data.counter %>
+                                            <% } %>
+                                            <% }) %>
+                                          <% } %>
+                                          <% if(count1>0) { %>
+                                            <option value="Hostel 2 (Boys)">Hostel 2 (Boys)</option>
+                                          <% } %>
+                                          <% if(count+count1===0) { %>
+                                            <option value="No Hostel available in the College">No Hostel available in the College</option>
+                                          <% } %>
+                                        </select>
+                                    </div>
+                            <% } %>
+                            <% if(clg==="Cummins College of Engineering for Girls") { %>
+                              <div class="form-group">
+                                <label for="clg" class="text-info">College Name:</label><br>
+                                <input type="text" name="clg" id="clg" class="form-control" autocomplete="off" value="Cummins College of Engineering for Girls" disabled>
+                            </div>
+                                    <div class="form-group">
+                                        <label for="hostel" class="text-info">Hostel No:</label><br>
+                                        <select name="hostel" id="hostel" class="form-control" required autocomplete="off">
+                                        <!-- <datalist id="hostel-me"> -->
+                                          <% var count=0 %>
+                                          <% if(hostel.length>0) { %>
+                                            <% hostel.forEach((data)=>{ %>
+                                                <% if(data.id===6){ %>
+                                                <% count=count+data.counter %>
+                                            <% } %>
+                                            <% }) %>
+                                          <% } %>
+                                          <% if(count>0) { %>
+                                            <option value="Hostel 1">Hostel 1</option>
+                                          <% } %>
+    
+                                          <% var count1=0 %>
+                                          <% if(hostel.length>0) { %>
+                                            <% hostel.forEach((data)=>{ %>
+                                                <% if(data.id===7){ %>
+                                                <% count1=count1+data.counter %>
+                                            <% } %>
+                                            <% }) %>
+                                          <% } %>
+                                          <% if(count1>0) { %>
+                                            <option value="Hostel 2">Hostel 2</option>
+                                          <% } %> 
+                                          <% if(count+count1===0) { %>
+                                            <option value="No Hostel available in the College">No Hostel available in the College</option>
+                                          <% } %> 
+                                        </select>
+                                    </div>
+                            <% } %>
+                            <div class="form-group">
+                                    <p>**Mess (Compulsory)</p>
+                                    <!-- <input type="radio" id="yes" name="mess" value="yes">
+                                    <label for="yes" class="text-info">Yes</label><br>
+                                    <input type="radio" id="no" name="mess" value="no">
+                                    <label for="no" class="text-info">No</label><br> -->
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="email_real" value="<%= email_id %>">
+                                <input type="hidden" name="clg" value="<%= clg %>">
+                                <button type="submit" class="click_me next">Next</button>
+                            </div>
+                        </form>   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include("includes/footer.ejs") -%>
+</body>
+</html>
+
+ 
