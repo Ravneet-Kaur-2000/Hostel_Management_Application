@@ -25,18 +25,18 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link nav-text">
+          <a href="/reallocate/<%=email %>" class="nav-link nav-text active">
             <i class='bx bx-edit'></i>  Reallocate Room
           </a>
         </li>
         <li class="nav-item">
-          <a href="/complaint/<%=email %>" class="nav-link nav-text active">
-            <i class='bx bx-time-five'></i>  File Complaint
+          <a href="/complaint/<%=email %>" class="nav-link nav-text">
+            <i class='bx bx-spreadsheet'></i>  File Complaint
           </a>
         </li>
         <li class="nav-item">
           <a href="/login" class="nav-link nav-text">
-            <i class='bx bx-spreadsheet'></i>  Logout
+            <i class='bx bx-time-five'></i>  Logout
           </a>
         </li>
       </ul>
@@ -51,12 +51,162 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md login">
-                    <form id="login-form" class="form" action="/complaint" method="post">
+                    <form id="login-form" class="form" action="/reallocate" method="post">
+                      
+                      <h4>Current Room Details:</h4>
+                      <br>
+                      <p><span>College Name</span> : <%= details.college %></p>
+                      <hr>
+                      <p><span>Hostel Number</span> : <%= details.hostel %> </p>
+                      <hr>
+                      <p><span>Occupancy</span> : <%= details.occupancy %> </p>
+                      <hr>
+                      <p><span>Floor Number</span> : <%= details.floor %></p>
+                      <hr>
+                      <p><span>Room Number</span> : <%=details.room_no %></p>
+                      <hr>
+                      <h4>Reallocate Room to:</h4>
+                      <br>
+                     
+                      <% if(clg==="MIT World Peace University") { %>
                         
+                          <div class="form-group">
+                              <label for="hostel" class="text-info" style="font-size: 1rem;">Select Hostel No:</label><br>
+                              <select id="hostel" name="hostel" class="form-control" required autocomplete="off">
+                                <% if(hostel.length>0) { %>
+                                  <% hostel.forEach((data)=>{ %>
+                                      <% if(data.id===1){ %>
+                                        <% if(data.total_counter>0) { %>
+                                          <option value="Hostel 1 (Boys)">Hostel 1 (Boys)</option>
+                                        <% } %>
+                                  <% } %>
+                                  <% }) %>
+                                <% } %>
+                                
+                                <% if(hostel.length>0) { %>
+                                  <% hostel.forEach((data)=>{ %>
+                                      <% if(data.id===2){ %>
+                                        <% if(data.total_counter>0) { %>
+                                          <option value="Hostel 2 (Boys)">Hostel 2 (Boys)</option>
+                                        <% } %>
+                                  <% } %>
+                                  <% }) %>
+                                <% } %>
+                                
+                                <% if(hostel.length>0) { %>
+                                  <% hostel.forEach((data)=>{ %>
+                                      <% if(data.id===3){ %>
+                                        <% if(data.total_counter>0) { %>
+                                          <option value="Hostel 3 (Girls)">Hostel 3 (Girls)</option>
+                                        <% } %>
+                                  <% } %>
+                                  <% }) %>
+                                <% } %>
 
+                                <% let c=0 %>
+                                    <% if(hostel.length>0) { %>
+                                      <% hostel.forEach((data)=>{ %>
+                                            <% c=c+data.total_counter %>
+                                      <% }) %>
+                                      <% if(c===0) { %>
+                                        <option value="no hostel">No Hostel Available</option>
+                                      <% } %>
+                                    <% } %>
+
+                                
+                              </select>
+                          </div>
+                      <% } %>
+                      <% if(clg==="Savitribai Phule Pune University") { %>
+                        
+                              <div class="form-group">
+                                  <label for="hostel" class="text-info">Select Hostel No:</label><br>
+                                  <select name="hostel" id="hostel" class="form-control" required autocomplete="off">
+                                  
+                                
+                                    <% if(hostel.length>0) { %>
+                                      <% hostel.forEach((data)=>{ %>
+                                          <% if(data.id===4){ %>
+                                            <% if(data.total_counter>0) { %>
+                                              <option value="Hostel 1 (Girls)">Hostel 1 (Girls)</option>
+                                            <% } %>
+                                      <% } %>
+                                      <% }) %>
+                                    <% } %>
+                                    
+                                    <% if(hostel.length>0) { %>
+                                      <% hostel.forEach((data)=>{ %>
+                                          <% if(data.id===5){ %>
+                                            <% if(data.total_counter>0) { %>
+                                              <option value="Hostel 2 (Boys)">Hostel 2 (Boys)</option>
+                                            <% } %>
+                                      <% } %>
+                                      <% }) %>
+                                    <% } %>
+                                    
+                                    <% let c=0 %>
+                                    <% if(hostel.length>0) { %>
+                                      <% hostel.forEach((data)=>{ %>
+                                            <% c=c+data.total_counter %>
+                                      <% }) %>
+                                    <% } %>
+
+                                    <% if(c===0) { %>
+
+                                      <option value="no hostel">No Hostel Available</option>
+                                    <% } %>
+                                    
+                                  </select>
+                              </div>
+                      <% } %>
+                      <% if(clg==="Cummins College of Engineering for Girls") { %>
+    
+                              <div class="form-group">
+                                  <label for="hostel" class="text-info " style="font-size: 1rem;" >Select Hostel No:</label><br>
+                                  <select name="hostel" id="hostel" class="form-control" required autocomplete="off">
+                                  
+                                    
+                                    <% if(hostel.length>0) { %>
+                                      <% hostel.forEach((data)=>{ %>
+                                          <% if(data.id===6){ %>
+                                            <% if(data.total_counter>0) { %>
+                                              <option value="Hostel 1">Hostel 1</option>
+                                            <% } %>
+                                      <% } %>
+                                      <% }) %>
+                                    <% } %>
+                                   
+
+                                 
+                                    <% if(hostel.length>0) { %>
+                                      <% hostel.forEach((data)=>{ %>
+                                          <% if(data.id===7){ %>
+                                            <% if(data.total_counter>0) { %>
+                                              <option value="Hostel 2">Hostel 2</option>
+                                            <% } %> 
+                                      <% } %>
+                                      <% }) %>
+                                    <% } %>
+
+                                    <% let c=0 %>
+                                    <% if(hostel.length>0) { %>
+                                      <% hostel.forEach((data)=>{ %>
+                                            <% c=c+Number(data.total_counter) %>
+                                      
+                                      <% }) %>
+                                    <% } %>
+
+                                    <% if(c===0) { %>
+                                      <option value="no hostel">No Hostel Available</option>
+                                    <% } %>
+
+                                  </select>
+                              </div>
+                      <% } %>
                         <input type="hidden" name="email_real" value="<%= email %>">
+                        <input type="hidden" name="college" value="<%= clg %>">
                         <div class="form-group">
-                            <button type="submit" class="click_me">Add Complaint</button>
+                            <button type="submit" class="click_me">Look for Available Rooms to Reallocate to</button>
                         </div>
                     </form>   
                 </div>

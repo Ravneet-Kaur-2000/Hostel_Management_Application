@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="/css/complaint.css">
+    <!-- Scripts -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+      .dashboard-cards{
+          margin-top: 2%;
+          padding: 1rem 0.5rem;
+      }
+      table{
+          border-collapse: collapse;
+          box-shadow: 5px 5px 5px 2px #797a7c;
+          background-color: white;
+          text-align: left;
+          margin:0 auto;
+      }
+      th{
+          background-color: #d0def2;
+          padding: 0.5rem 1rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          font-size: 0.8rem;
+      }
+      td{
+          padding: 0.5rem 1rem;
+
+      }
+      .click_me{
+          background-color: white;
+          border:2px solid #7868E6;
+          font-weight:bold;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin:0 auto;
+          border-radius: 0.5rem;
+          padding:0;
+      }
+
+      .click_me a{
+        color:#7868E6;
+        padding:0.5rem;
+      }
+
+      .click_me a:hover{
+          text-decoration: none;
+          color:white;
+          background-color: #7868E6;
+      }
+    </style>
+</head>
+
+<body>
+  <div class="flex">
+    <div class="navbar navbar-expand-lg navbar-dark navbar-custom">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a href="/profile/<%=email %>" class="nav-link nav-text" >
+            <i class='bx bx-user'></i>  Profile
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/reallocate/<%=email %>" class="nav-link nav-text active">
+            <i class='bx bx-edit'></i>  Reallocate Room
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/complaint/<%=email %>" class="nav-link nav-text">
+            <i class='bx bx-spreadsheet'></i>  File Complaint
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link nav-text">
+            <i class='bx bx-time-five'></i>  Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="profile-outer">
+      <div class="profile-inner" style="display: flex;">
+        <h4>Reallocate Room</h4>
+      </div>
+      <div class="dashboard-cards">
+        <table>
+      
+            <thead>
+                <tr>
+                    <th scope="col">Hostel Number</th>
+                    <th scope="col">Occupancy</th>
+                    <th scope="col">Floor</th>
+                    <th scope="col">Room Number</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody style="font-size: 1rem;color:black">
+                <% if(rooms.length>0) { %>
+                    <% rooms.forEach((data)=>{ %>
+                        <tr>
+                        <td><%= data.hostel_no %></td>
+                        <td><%= data.room_type %></td>
+                        <td><%= data.floor %></td>
+                        <td><%= data.room_no %></td>
+                        <td><button class="click_me"><a href="/change-room/<%=email%>/<%=data.hostel_no%>/<%=data.room_no %>/<%=data.floor%>/<%=data.room_type%>">Reallocate To</a></button></td>
+                        </tr>
+                        <% }) %>
+          <% } %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</body>
