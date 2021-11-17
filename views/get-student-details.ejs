@@ -57,7 +57,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="contact" class="text-info">Contact Number:</label><br>
-                                <input type="number" name="contact" id="contact" class="form-control" autocomplete="off" required placeholder="Enter your Contact Number" maxlength="10" size="10">
+                                <input type="text" name="contact" id="contact" class="form-control" pattern="[0-9]{10}" autocomplete="off" required placeholder="Enter your Contact Number" maxlength="10" size="10">
                             </div>
                             <div class="form-group">
                                 <label for="pname" class="text-info">Parent's Name:</label><br>
@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="econtact" class="text-info">Emergency Contact Number:</label><br>
-                                <input type="number" name="econtact" id="econtact" class="form-control" autocomplete="off" required placeholder="Enter your Emergency Conatct Number">
+                                <input type="text" name="econtact" id="econtact" class="form-control" pattern="[0-9]{10}" autocomplete="off" required placeholder="Enter your Emergency Conatct Number">
                             </div>
 
                             <h5>Hostel Selection:</h5>
@@ -76,48 +76,49 @@
                             </div>
                                 <div class="form-group">
                                     <label for="hostel" class="text-info">Hostel No:</label><br>
-                                    <select id="hostel" name="hostel" class="form-control" required>
-                                    <!-- <input list="hostel-me" name="hostel" id="hostel" class="form-control" required autocomplete="off"> -->
-                                    <!-- <datalist id="hostel-me"> -->
-                                      <% var count=0 %>
+                                    <select id="hostel" name="hostel" class="form-control" required autocomplete="off">
                                       <% if(hostel.length>0) { %>
                                         <% hostel.forEach((data)=>{ %>
                                             <% if(data.id===1){ %>
-                                            <% count=count+data.counter %>
+                                              <% if(data.total_counter>0) { %>
+                                                <option value="Hostel 1 (Boys)">Hostel 1 (Boys)</option>
+                                              <% } %>
                                         <% } %>
                                         <% }) %>
                                       <% } %>
-                                      <% if(count>0) { %>
-                                        <option value="Hostel 1 (Boys)">Hostel 1 (Boys)</option>
-                                      <% } %>
-
-                                      <% var count1=0 %>
+                                      
                                       <% if(hostel.length>0) { %>
                                         <% hostel.forEach((data)=>{ %>
                                             <% if(data.id===2){ %>
-                                            <% count1=count1+data.counter %>
+                                              <% if(data.total_counter>0) { %>
+                                                <option value="Hostel 2 (Boys)">Hostel 2 (Boys)</option>
+                                              <% } %>
                                         <% } %>
                                         <% }) %>
                                       <% } %>
-                                      <% if(count1>0) { %>
-                                        <option value="Hostel 2 (Boys)">Hostel 2 (Boys)</option>
-                                      <% } %>
-
-                                      <% var count2=0 %>
+                                      
                                       <% if(hostel.length>0) { %>
                                         <% hostel.forEach((data)=>{ %>
                                             <% if(data.id===3){ %>
-                                            <% count2=count2+data.counter %>
+                                              <% if(data.total_counter>0) { %>
+                                                <option value="Hostel 3 (Girls)">Hostel 3 (Girls)</option>
+                                              <% } %>
                                         <% } %>
                                         <% }) %>
                                       <% } %>
-                                      <% if(count2>0) { %>
-                                        <option value="Hostel 3 (Girls)">Hostel 3 (Girls)</option>
-                                      <% } %>
-                                      <% if(count+count1+count2===0) { %>
-                                        <option value="No Hostel available in the College">No Hostel available in the College</option>
-                                      <% } %> 
-                                      <!-- </datalist> -->
+
+                                      <% let c=0 %>
+                                          <% if(hostel.length>0) { %>
+                                            <% hostel.forEach((data)=>{ %>
+                                                  <% c=c+data.total_counter %>
+                                            <% }) %>
+                                            <% if(c===0) { %>
+                                              <option value="no hostel">No Hostel Available</option>
+                                            <% } %>
+                                          <% } %>
+
+                                          
+                                      
                                     </select>
                                 </div>
                             <% } %>
@@ -129,33 +130,42 @@
                                     <div class="form-group">
                                         <label for="hostel" class="text-info">Hostel No:</label><br>
                                         <select name="hostel" id="hostel" class="form-control" required autocomplete="off">
-                                        <!-- <datalist id="hostel-me">   -->
-                                          <% var count=0 %>
+                                        
+                                      
                                           <% if(hostel.length>0) { %>
                                             <% hostel.forEach((data)=>{ %>
                                                 <% if(data.id===4){ %>
-                                                <% count=count+data.counter %>
+                                                  <% if(data.total_counter>0) { %>
+                                                    <option value="Hostel 1 (Girls)">Hostel 1 (Girls)</option>
+                                                  <% } %>
                                             <% } %>
                                             <% }) %>
                                           <% } %>
-                                          <% if(count>0) { %>
-                                            <option value="Hostel 1 (Girls)">Hostel 1 (Girls)</option>
-                                          <% } %>
+                                          
     
-                                          <% var count1=0 %>
+                                  
                                           <% if(hostel.length>0) { %>
                                             <% hostel.forEach((data)=>{ %>
                                                 <% if(data.id===5){ %>
-                                                <% count1=count1+data.counter %>
+                                                  <% if(data.total_counter>0) { %>
+                                                    <option value="Hostel 2 (Boys)">Hostel 2 (Boys)</option>
+                                                  <% } %>
                                             <% } %>
                                             <% }) %>
                                           <% } %>
-                                          <% if(count1>0) { %>
-                                            <option value="Hostel 2 (Boys)">Hostel 2 (Boys)</option>
+                                          
+                                          <% let c=0 %>
+                                          <% if(hostel.length>0) { %>
+                                            <% hostel.forEach((data)=>{ %>
+                                                  <% c=c+data.total_counter %>
+                                            <% }) %>
                                           <% } %>
-                                          <% if(count+count1===0) { %>
-                                            <option value="No Hostel available in the College">No Hostel available in the College</option>
+
+                                          <% if(c===0) { %>
+
+                                            <option value="no hostel">No Hostel Available</option>
                                           <% } %>
+                                          
                                         </select>
                                     </div>
                             <% } %>
@@ -167,42 +177,51 @@
                                     <div class="form-group">
                                         <label for="hostel" class="text-info">Hostel No:</label><br>
                                         <select name="hostel" id="hostel" class="form-control" required autocomplete="off">
-                                        <!-- <datalist id="hostel-me"> -->
-                                          <% var count=0 %>
+                                        
+                                          
                                           <% if(hostel.length>0) { %>
                                             <% hostel.forEach((data)=>{ %>
                                                 <% if(data.id===6){ %>
-                                                <% count=count+data.counter %>
+                                                  <% if(data.total_counter>0) { %>
+                                                    <option value="Hostel 1">Hostel 1</option>
+                                                  <% } %>
                                             <% } %>
                                             <% }) %>
                                           <% } %>
-                                          <% if(count>0) { %>
-                                            <option value="Hostel 1">Hostel 1</option>
-                                          <% } %>
+                                         
     
-                                          <% var count1=0 %>
+                                       
                                           <% if(hostel.length>0) { %>
                                             <% hostel.forEach((data)=>{ %>
                                                 <% if(data.id===7){ %>
-                                                <% count1=count1+data.counter %>
+                                                  <% if(data.total_counter>0) { %>
+                                                    <option value="Hostel 2">Hostel 2</option>
+                                                  <% } %> 
                                             <% } %>
                                             <% }) %>
                                           <% } %>
-                                          <% if(count1>0) { %>
-                                            <option value="Hostel 2">Hostel 2</option>
-                                          <% } %> 
-                                          <% if(count+count1===0) { %>
-                                            <option value="No Hostel available in the College">No Hostel available in the College</option>
-                                          <% } %> 
+
+                                          <% let c=0 %>
+                                          <% if(hostel.length>0) { %>
+                                            <% hostel.forEach((data)=>{ %>
+                                                  <% c=c+Number(data.total_counter) %>
+                                            
+                                            <% }) %>
+                                          <% } %>
+
+                                          <% if(c===0) { %>
+                                            <option value="no hostel">No Hostel Available</option>
+                                          <% } %>
+
+                                          
+
+                                         
                                         </select>
                                     </div>
                             <% } %>
                             <div class="form-group">
                                     <p>**Mess (Compulsory)</p>
-                                    <!-- <input type="radio" id="yes" name="mess" value="yes">
-                                    <label for="yes" class="text-info">Yes</label><br>
-                                    <input type="radio" id="no" name="mess" value="no">
-                                    <label for="no" class="text-info">No</label><br> -->
+                                   
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="email_real" value="<%= email_id %>">

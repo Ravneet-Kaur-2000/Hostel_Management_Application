@@ -27,54 +27,49 @@
                             <div class="form-group">
                                 <label for="occ" class="text-info">Occupancy:</label><br>
                                 <select name="occ" id="occ" class="form-control" required autocomplete="off">
-                                <!-- <datalist id="occ-me">   -->
-                                    
-                                    <% var count=0 %>
+                                
                                       <% if(details.length>0) { %>
                                         <% details.forEach((data)=>{ %>
                                             <% if(data.room_type==='Single Occupancy'){ %>
-                                            <% count=count+data.counter %>
+                                              <% if(data.total_count>0) { %>
+                                                <option value="Single Occupancy">Single Occupancy</option>
+                                              <% } %>
                                         <% } %>
                                         <% }) %>
                                       <% } %>
-                                      <% if(count>0) { %>
-                                        <option value="Single Occupancy">Single Occupancy</option>
-                                      <% } %>
+                                      
 
-                                      <% var count1=0 %>
+                                      
                                       <% if(details.length>0) { %>
                                         <% details.forEach((data)=>{ %>
                                             <% if(data.room_type==='Double Occupancy'){ %>
-                                            <% count1=count1+data.counter %>
+                                              <% if(data.total_count>0) { %>
+                                                <option value="Double Occupancy">Double Occupancy</option>
+                                              <% } %>
                                         <% } %>
                                         <% }) %>
                                       <% } %>
-                                      <% if(count1>0) { %>
-                                        <option value="Double Occupancy">Double Occupancy</option>
-                                      <% } %>
+                                      
 
-                                      <% var count2=0 %>
+                                      
                                       <% if(details.length>0) { %>
                                         <% details.forEach((data)=>{ %>
                                             <% if(data.room_type=='Triple Occupancy'){ %>
-                                            <% count2=count2+data.counter %>
+                                              <% if(data.total_count>0) { %>
+                                                <option value="Triple Occupancy">Triple Occupancy</option>
+                                              <% } %>
                                         <% } %>
                                         <% }) %>
                                       <% } %>
-                                      <% if(count2>0) { %>
-                                        <option value="Triple Occupancy">Triple Occupancy</option>
-                                      <% } %>
-
-                                      <% var count3=0 %>
+                                      
                                       <% if(details.length>0) { %>
                                         <% details.forEach((data)=>{ %>
                                             <% if(data.room_type=='Quadruple Occupancy'){ %>
-                                            <% count3=count3+data.counter %>
+                                              <% if(data.total_count>0) { %>
+                                                <option value="Quadruple Occupancy">Quadruple Occupancy</option>
+                                              <% } %>
                                         <% } %>
                                         <% }) %>
-                                      <% } %>
-                                      <% if(count3>0) { %>
-                                        <option value="Quadruple Occupancy">Quadruple Occupancy</option>
                                       <% } %>
                                       
                                 </select>
@@ -94,68 +89,3 @@
 </body>
 </html>
 
-<!-- <% if(details.length>0) { %>
-                                    <% details.forEach((data)=>{ %>
-                                    <% if(data.room_type==='Single Occupancy'){ %>
-                                    <option value="Single Occupancy">
-                                    <% } %>  
-                                    <% if(data.room_type==='Double Occupancy'){ %>
-                                    <option value="Double Occupancy">
-                                    <% } %>   
-                                    <% if(data.room_type=='Triple Occupancy'){ %>
-                                    <option value="Triple Occupancy">
-                                    <% } %>   
-                                     <% if(data.room_type==='Quadruple Occupancy'){ %>
-                                     <option value="Quadruple Occupancy">
-                                     <% } %>    
-                                    <% }) %>
-                                    <% } %> -->
-
-
-                                     <!-- <% var count=0 %>
-                                      <% if(details.length>0) { %>
-                                        <% details.forEach((data)=>{ %>
-                                            <% if(data.room_type==='Single Occupancy'){ %>
-                                            <% count=count+data.counter %>
-                                        <% } %>
-                                        <% }) %>
-                                      <% } %>
-                                      <% if(count>0) { %>
-                                        <option value="Single Occupancy">
-                                      <% } %>
-
-                                      <% var count1=0 %>
-                                      <% if(details.length>0) { %>
-                                        <% details.forEach((data)=>{ %>
-                                            <% if(data.room_type==='Double Occupancy'){ %>
-                                            <% count1=count1+data.counter %>
-                                        <% } %>
-                                        <% }) %>
-                                      <% } %>
-                                      <% if(count1>0) { %>
-                                        <option value="Double Occupancy">
-                                      <% } %>
-
-                                      <% var count2=0 %>
-                                      <% if(details.length>0) { %>
-                                        <% details.forEach((data)=>{ %>
-                                            <% if(data.room_type=='Triple Occupancy'){ %>
-                                            <% count2=count2+data.counter %>
-                                        <% } %>
-                                        <% }) %>
-                                      <% } %>
-                                      <% if(count2>0) { %>
-                                        <option value="Triple Occupancy">
-                                      <% } %>
-
-                                      <% var count3=0 %>
-                                      <% if(details.length>0) { %>
-                                        <% details.forEach((data)=>{ %>
-                                            <% if(data.room_type=='Quadruple Occupancy'){ %>
-                                            <% count3=count3+data.counter %>
-                                        <% } %>
-                                        <% }) %>
-                                      <% } %>
-                                      <% if(count3>0) { %>
-                                        <option value="Quadruple Occupancy">
-                                      <% } %> -->

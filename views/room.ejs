@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <label for="room" class="text-info">Room Number:</label><br>
                                 <select name="room" id="room" class="form-control" required autocomplete="off">
-                                <!-- <datalist id="room-me">   -->
+                                
                                     <% if(details.length>0) { %>
                                     <% details.forEach((data)=>{ %>
                                     <option value="<%=data.room_no %> (Floor No: <%= data.floor %> )"><%=data.room_no %> (Floor No: <%= data.floor %> )</option>
