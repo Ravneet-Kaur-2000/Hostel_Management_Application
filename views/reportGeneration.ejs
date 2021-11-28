@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="/css/admin.css">
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h2> &nbsp;&nbsp; Admin Panel</h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="/viewStudents" ><span class="fas fa-users"></span><span> View Students</span></a>
+                </li>
+                <li>
+                    <a href="/addNewStudent"><span class="fas fa-user"></span><span> Register Student</span></a>
+                </li>
+                <li>
+                    <a href="/deleteStudent"><span class="fas fa-trash-alt"></span><span> Delete Student</span></a>
+                </li>
+                <li>
+                    <a href="/addNewRoom"><span class="fas fa-plus-square"></span><span> Add a New Room</span></a>
+                </li>
+                <li>
+                    <a href="/reportGeneration" class="active"><span class="fas fa-users"></span><span> Report Generation</span></a>
+                </li>
+                <li>
+                    <a href="/viewComplaints"><span class="fas fa-comments"></span><span> View Complaints</span></a>
+                </li>
+                <li>
+                    <a href="/"><span class="fas fa-sign-out-alt"></span><span>Logout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <header style="display: flex;"> 
+                <h2> 
+                    Dashboard
+                </h2>   
+        </header>
+        <main>
+            <div class="dashboard-cards">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">College</th>
+                            <th scope="col">Hostel No.</th>                         
+                            <th scope="col">No.of Beds available</th>
+                        </tr>
+                    </thead>
+                    <tbody style="font-size: 0.6rem;color:black">
+                        <% if(reportData.length>0) { %>
+                            <% reportData.forEach((data)=>{ %>
+                                <tr>
+                                <td><%= data.college %></td>
+                                <td><%= data.hostel_no %></td>
+                                <td><%= data.total %></td>
+                                </tr>
+                            <% }) %>   
+                <% } %>     
+                    </tbody>
+                </table>
+            </div>  
+        </main>
+    </div>
+</body>
+</html>
