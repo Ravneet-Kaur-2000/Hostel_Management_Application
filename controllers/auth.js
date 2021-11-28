@@ -37,9 +37,7 @@ exports.postLogin=(req,res,next)=>{
         res.redirect("/viewStudents");
     }
     else{
-        res.send('<script>alert("Incorrect details for admin panel");location.href="/login"</script>');
-    }
-    db.execute("SELECT * FROM student WHERE email = ? " ,[email_id])
+        db.execute("SELECT * FROM student WHERE email = ? " ,[email_id])
     .then(([rows,fieldData])=>{ 
         row=rows;
         if(pass==rows[0].password){
@@ -73,4 +71,6 @@ exports.postLogin=(req,res,next)=>{
         console.log(err);
         res.send('<script>alert("User does not exist or incorrect details entered");location.href="/signup"</script>');
     });
+    }
+    
 }
