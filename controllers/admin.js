@@ -89,7 +89,7 @@ exports.postDeleteStudent=(req,res,next)=>{
         return db.execute("DELETE student_hostel, student from student inner join student_hostel where student.email= ? ",[email])
     })
     .then(()=>{
-        res.send('<script>alert("Student Deleted Successfully");location.href="/"</script>');
+        res.send('<script>alert("Student Deleted Successfully");location.href="/deleteStudent"</script>');
     })
     .catch(err=>{ 
         console.log(err);
